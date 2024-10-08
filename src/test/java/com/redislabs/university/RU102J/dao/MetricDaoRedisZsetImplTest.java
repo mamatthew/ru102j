@@ -6,7 +6,6 @@ import com.redislabs.university.RU102J.api.MeterReading;
 import com.redislabs.university.RU102J.api.MetricUnit;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.time.ZoneOffset;
@@ -15,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class MetricDaoRedisZsetImplTest extends JedisDaoTestBase {
 
@@ -48,14 +47,12 @@ public class MetricDaoRedisZsetImplTest extends JedisDaoTestBase {
     }
 
     // Challenge #2
-    @Ignore
     @Test
     public void testSmall() {
         testInsertAndRetrieve(1);
     }
 
     // Challenge #2
-    @Ignore
     @Test
     public void testOneDay() {
         testInsertAndRetrieve(60 * 24);
@@ -63,7 +60,6 @@ public class MetricDaoRedisZsetImplTest extends JedisDaoTestBase {
 
 
     // Challenge #2
-    @Ignore
     @Test
     public void testMultipleDays() {
         testInsertAndRetrieve(60 * 70);
