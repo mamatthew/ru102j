@@ -1,11 +1,13 @@
 package com.redislabs.university.RU102J;
 
-import com.redislabs.redistimeseries.RedisTimeSeries;
 import com.redislabs.university.RU102J.command.LoadCommand;
 import com.redislabs.university.RU102J.command.RunCommand;
 import com.redislabs.university.RU102J.dao.*;
 import com.redislabs.university.RU102J.health.RediSolarHealthCheck;
-import com.redislabs.university.RU102J.resources.*;
+import com.redislabs.university.RU102J.resources.CapacityResource;
+import com.redislabs.university.RU102J.resources.MeterReadingResource;
+import com.redislabs.university.RU102J.resources.MetricsResource;
+import com.redislabs.university.RU102J.resources.SiteGeoResource;
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;
@@ -47,10 +49,10 @@ public class RediSolarApplication extends Application<RediSolarConfiguration> {
         }
 
         // To use the geospatial features, replace the following lines with:
-        // SiteGeoResource siteResource =
-        //        new SiteGeoResource(new SiteGeoDaoRedisImpl(jedisPool));
-        SiteResource siteResource =
-                new SiteResource(new SiteDaoRedisImpl(jedisPool));
+         SiteGeoResource siteResource =
+                new SiteGeoResource(new SiteGeoDaoRedisImpl(jedisPool));
+//        SiteResource siteResource =
+//                new SiteResource(new SiteDaoRedisImpl(jedisPool));
         environment.jersey().register(siteResource);
 
         // For RedisTimeSeries: replace the next lines with

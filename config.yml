@@ -6,7 +6,7 @@ defaultName: "RediSolar"
 redis:
   host: localhost
   port: 6379
-  password: foobared
+  password:
 server:
   rootPath: /api
   applicationConnectors:
